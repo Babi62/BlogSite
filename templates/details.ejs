@@ -1,0 +1,29 @@
+<html lang="en">
+
+<head>
+    <%- include('./partials/head.ejs')%>
+</head>
+
+<body>
+    <!--Navbar-->
+    <%- include('./partials/nav.ejs')%>
+        <!--Navbar end-->
+
+        <div class="container">
+            <h2>
+                <%= blog.title%>
+            </h2>
+            <div class="content">
+                <p class="lh-base">
+                    <%= blog.snippet%>
+                </p>
+            </div>
+            <a href="" class="btn btn-outline-danger" data-doc="<%= blog._id%>">delete</a>
+        </div>
+
+        <!--footer-->
+        <%- include('./partials/footer.ejs')%>
+            <!--footer end-->
+</body>
+
+</html>

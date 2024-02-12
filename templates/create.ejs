@@ -1,0 +1,38 @@
+<html lang="en">
+
+<head>
+    <%- include('./partials/head.ejs')%>
+</head>
+
+<body>
+    <!--Navbar-->
+    <%- include('./partials/nav.ejs')%>
+        <!--Navbar end-->
+
+        <div class="create-blogs content">
+            <hr class="border border-danger border-2 opacity-50">
+            <h1>Create Blogs</h1>
+            <hr class="border border-danger border-2 opacity-50">
+            <br />
+            <form method="post" action="/blogs">
+                <label for="title" class="form-label">Blog title</label>
+                <input type="text" id="title" class="form-control" name="title">
+                <label for="Snippet" class="form-label">Blog Snippet</label>
+                <input type="text" id="Snippet" class="form-control" name="snippet" required>
+                <label for="body" class="form-label">Blog Body</label>
+                <div class="form-floating">
+                    <textarea class="form-control" name="body" placeholder="Write blog body" id="body"
+                        style="height: 100px" required></textarea>
+                    <label for="body">Your blog</label>
+                </div>
+                <br />
+                <button type="submit" class="btn btn-outline-success">Submit</button>
+            </form>
+
+        </div>
+        <!--footer-->
+        <%- include('./partials/footer.ejs')%>
+            <!--footer end-->
+</body>
+
+</html>

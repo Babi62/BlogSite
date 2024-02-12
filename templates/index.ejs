@@ -1,0 +1,50 @@
+<html lang="en">
+
+<head>
+    <%- include('./partials/head.ejs')%>
+</head>
+
+<body>
+    <!--Navbar-->
+    <%- include('./partials/nav.ejs')%>
+        <!--Navbar end-->
+
+        <div class="blogs content">
+            <hr class="border border-danger border-2 opacity-50">
+            <h1>All Blogs</h1>
+            <hr class="border border-danger border-2 opacity-50">
+            <br /> <br />
+
+            <%if(blogs.length> 0) { %>
+                <% blogs.forEach(blog=>{ %>
+                    <ul class="nav nav-tabs">
+                        <li class="nav-item">
+                            <a href="/blogs/<%= blog._id%>" class="nav-list">
+                                <h2>
+                                    <%= blog.title%>
+                                </h2>
+
+                                <p class="lh-base">
+                                    <%= blog.snippet%>
+                                </p>
+                                <br />
+                                <p class="lh-lg">
+                                    <%= blog.body%>
+                                </p>
+                                <br /> <br />
+                            </a>
+                        </li>
+                    </ul>
+
+                    <% }) %>
+                        <% } else {%>
+                            <p class="lh-lg">There are no blogs.</p>
+                            <%}%>
+
+        </div>
+        <!--footer-->
+        <%- include('./partials/footer.ejs')%>
+            <!--footer end-->
+</body>
+
+</html>
