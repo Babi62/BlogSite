@@ -138,20 +138,32 @@ app.post('/blogs', (req, res) => {
         })
 })
 
+app.get('/blogs/create', (req, res) => {
+    res.render('create', { title: 'Create' });
+})
+
 app.get('/blogs/:id', (req, res) => {
     const id = req.params.id;
     Blog.findById(id)
         .then(result => {
-            render('details', { blog: result, title: 'blogs Details' })
+            res.render('details', { blog: result, title: 'blogs Details' })
         })
         .catch((err) => {
             console.log(err)
         })
-})
+});
 
-app.get('/blogs/create', (req, res) => {
-    res.render('create', { title: 'Create' });
-})
+app.delete('/blogs/:id', (req, res) => {
+    const id = req.params.id;
+    Blog.findByIdAndDelete(id)
+        .then(result => {
+            res.json({ redirect: '/blogs' })
+            // res.redirect('/blogs')
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+});
 
 // redirect
 app.get('/about-us', (req, res) => {
