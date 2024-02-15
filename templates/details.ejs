@@ -18,12 +18,28 @@
                     <%= blog.snippet%>
                 </p>
             </div>
+            <br /><br />
             <a href="" class="btn btn-outline-danger" data-doc="<%= blog._id%>">delete</a>
         </div>
 
+        <br /><br />
         <!--footer-->
         <%- include('./partials/footer.ejs')%>
             <!--footer end-->
+
+            <script>
+                const trash = document.querySelector('a.btn btn-outline-danger');
+                trash.addEventListener('click', (e) => {
+                    const endpoint = `/blogs/${trash.dataset.doc}`;
+
+                    fetch(endpoint, {
+                        method: 'DELETE'
+                    })
+                        .then((response) => { response.json() })
+                        .then((data) => console.log(data))
+                        .catch((err) => { console.log(err) })
+                })
+            </script>
 </body>
 
 </html>
