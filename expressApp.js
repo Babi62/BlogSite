@@ -157,8 +157,8 @@ app.delete('/blogs/:id', (req, res) => {
     const id = req.params.id;
     Blog.findByIdAndDelete(id)
         .then(result => {
-            res.json({ redirect: '/blogs' })
-            // res.redirect('/blogs')
+            console.log('Blog deleted successfully');
+            res.json({ redirect: '/blogs', showAlert: true });
         })
         .catch((err) => {
             console.log(err)
